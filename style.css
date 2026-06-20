@@ -587,6 +587,7 @@ body {
     .workflow-arrow { transform: rotate(90deg); }
 }
 @media (max-width: 640px) {
-    .nav-links { display: none; }
+    .nav-links { display: flex; gap: 0; }
+    .nav-links a:not(.nav-cta) { display: none; }
     .hero-title { font-size: clamp(3rem, 18vw, 5rem); }
 }
