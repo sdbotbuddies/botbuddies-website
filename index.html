@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BotBuddies — Code. Build. Launch.</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Space+Mono:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="tsparticles"></div>
+
+<nav class="nav">
+    <div class="nav-logo">
+        <span class="logo-bracket">&lt;</span>BotBuddies<span class="logo-bracket">/&gt;</span>
+    </div>
+    <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#how-it-works">How It Works</a>
+        <a href="#learn">What You'll Learn</a>
+        <a href="#parents">For Parents</a>
+        <a href="#coaches">Coaches</a>
+        <a href="getting-started.html" class="nav-cta">🚀 Get Started</a>
+    </div>
+</nav>
+
+<!-- About -->
+<section class="section about-section" id="about">
+    <div class="container">
+        <div class="section-header" data-aos="fade-up">
+            <span class="section-tag">// about</span>
+            <h2><span class="glow-text">BotBuddies</span></h2>
+            <p class="section-subtitle" style="margin-top:1rem;font-size:1.15rem;">A coding and robotics team for 6th &amp; 7th graders — using real tools, building real skills.</p>
+            <div class="hero-tech-stack" style="margin-top:1.5rem;">
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">Git</span>
+                <span class="tech-tag">VS Code</span>
+                <span class="tech-tag">GitHub</span>
+                <span class="tech-tag">FLL Robotics</span>
+            </div>
+        </div>
+        <div class="about-grid">
+            <div class="about-text" data-aos="fade-right">
+                <p>BotBuddies is a programming and robotics team for 6th and 7th graders who want to learn how real software is built. We use the same tools that professional developers use every day — VS Code, Python, Git, and GitHub.</p>
+                <p>Students work on coding assignments, personal projects, and FLL robot programming — all while building skills that will last a lifetime.</p>
+            </div>
+            <div class="stats-grid" data-aos="fade-left">
+                <div class="stat-card">
+                    <div class="stat-number accent">7</div>
+                    <div class="stat-label">Students</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number accent">1</div>
+                    <div class="stat-label">Year Program</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number accent">∞</div>
+                    <div class="stat-label">Possibilities</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number accent">100%</div>
+                    <div class="stat-label">Real Tools</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- How It Works -->
+<section class="section workflow-section" id="how-it-works">
+    <div class="container">
+        <div class="section-header" data-aos="fade-up">
+            <span class="section-tag">// workflow</span>
+            <h2>How It <span class="accent">Works</span></h2>
+            <p class="section-subtitle">Every assignment follows the same professional workflow used by real software teams</p>
+        </div>
+        <div class="workflow-steps">
+            <div class="workflow-step" data-aos="fade-up" data-aos-delay="0">
+                <div class="step-icon">📥</div>
+                <div class="step-number">01</div>
+                <h3>Get Assignment</h3>
+                <p>Coach releases a new challenge. Pull it into VS Code with one click.</p>
+            </div>
+            <div class="workflow-arrow" data-aos="fade-up" data-aos-delay="50">→</div>
+            <div class="workflow-step" data-aos="fade-up" data-aos-delay="100">
+                <div class="step-icon">💻</div>
+                <div class="step-number">02</div>
+                <h3>Write Code</h3>
+                <p>Build your Python solution in VS Code. The editor helps as you type.</p>
+            </div>
+            <div class="workflow-arrow" data-aos="fade-up" data-aos-delay="150">→</div>
+            <div class="workflow-step" data-aos="fade-up" data-aos-delay="200">
+                <div class="step-icon">🧪</div>
+                <div class="step-number">03</div>
+                <h3>Run Tests</h3>
+                <p>One click to run tests. See green checkmarks appear in real time!</p>
+            </div>
+            <div class="workflow-arrow" data-aos="fade-up" data-aos-delay="250">→</div>
+            <div class="workflow-step" data-aos="fade-up" data-aos-delay="300">
+                <div class="step-icon">🚀</div>
+                <div class="step-number">04</div>
+                <h3>Push to GitHub</h3>
+                <p>Submit your work with a click. GitHub saves your code history forever.</p>
+            </div>
+            <div class="workflow-arrow" data-aos="fade-up" data-aos-delay="350">→</div>
+            <div class="workflow-step" data-aos="fade-up" data-aos-delay="400">
+                <div class="step-icon">✅</div>
+                <div class="step-number">05</div>
+                <h3>Auto-Graded</h3>
+                <p>Results in seconds. Discover hidden edge cases — that's part of the challenge!</p>
+            </div>
+        </div>
+
+        <div class="terminal-preview" data-aos="fade-up" data-aos-delay="100">
+            <div class="terminal-header">
+                <span class="terminal-dot red"></span>
+                <span class="terminal-dot yellow"></span>
+                <span class="terminal-dot green"></span>
+                <span class="terminal-title">GitHub Actions — Grade Assignments</span>
+            </div>
+            <div class="terminal-body">
+                <div class="terminal-line"><span class="t-green">PASSED</span> <span class="t-dim">assignments/a01/</span><span class="t-white">test_add_positive_numbers</span></div>
+                <div class="terminal-line"><span class="t-green">PASSED</span> <span class="t-dim">assignments/a01/</span><span class="t-white">test_add_with_zero</span></div>
+                <div class="terminal-line"><span class="t-green">PASSED</span> <span class="t-dim">assignments/a01/</span><span class="t-white">test_is_even_returns_true</span></div>
+                <div class="terminal-line"><span class="t-red">FAILED</span> <span class="t-dim">assignments/a01/</span><span class="t-white">test_add_negative_numbers</span></div>
+                <div class="terminal-line t-dim" style="margin-top:0.5rem">💡 Can you find the edge case? That's how pros think.</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- What You'll Learn -->
+<section class="section learn-section" id="learn">
+    <div class="container">
+        <div class="section-header" data-aos="fade-up">
+            <span class="section-tag">// skills</span>
+            <h2>What You'll <span class="accent">Learn</span></h2>
+            <p class="section-subtitle">Professional tools. Real skills. Used by developers at Google, NASA, and beyond.</p>
+        </div>
+        <div class="skills-grid">
+            <div class="skill-card" data-aos="zoom-in" data-aos-delay="0">
+                <div class="skill-icon">🐍</div>
+                <h3>Python</h3>
+                <p>Write real Python programs from day one. Functions, loops, logic — the works.</p>
+            </div>
+            <div class="skill-card" data-aos="zoom-in" data-aos-delay="100">
+                <div class="skill-icon">🌿</div>
+                <h3>Git &amp; GitHub</h3>
+                <p>Track your code history, collaborate with teammates, and submit work like a pro.</p>
+            </div>
+            <div class="skill-card" data-aos="zoom-in" data-aos-delay="200">
+                <div class="skill-icon">🖥️</div>
+                <h3>VS Code</h3>
+                <p>The #1 editor used by professional developers. You'll be fast with it in weeks.</p>
+            </div>
+            <div class="skill-card" data-aos="zoom-in" data-aos-delay="300">
+                <div class="skill-icon">🧪</div>
+                <h3>Testing</h3>
+                <p>Write code that you can prove works. Find bugs before they find you.</p>
+            </div>
+            <div class="skill-card" data-aos="zoom-in" data-aos-delay="400">
+                <div class="skill-icon">🤖</div>
+                <h3>FLL Robotics</h3>
+                <p>Program real robots for First Lego League competitions as a team.</p>
+            </div>
+            <div class="skill-card" data-aos="zoom-in" data-aos-delay="500">
+                <div class="skill-icon">🧠</div>
+                <h3>Problem Solving</h3>
+                <p>Break big problems into small pieces. Think like an engineer.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- For Parents -->
+<section class="section parents-section" id="parents">
+    <div class="container">
+        <div class="section-header" data-aos="fade-up">
+            <span class="section-tag">// for parents</span>
+            <h2>For <span class="accent">Parents</span></h2>
+        </div>
+        <div class="parents-grid">
+            <div class="parent-card" data-aos="fade-up" data-aos-delay="0">
+                <div class="parent-icon">🔒</div>
+                <h3>Safe &amp; Monitored</h3>
+                <p>All student repositories are private. Only the student and coaches can see their work. No public exposure of student code.</p>
+            </div>
+            <div class="parent-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="parent-icon">🛠️</div>
+                <h3>Professional Tools</h3>
+                <p>Students use VS Code and GitHub — the same tools used at Microsoft, Google, and NASA. These skills are valuable for life.</p>
+            </div>
+            <div class="parent-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="parent-icon">📊</div>
+                <h3>Progress Tracking</h3>
+                <p>Coaches can see exactly how each student is progressing — which assignments are complete, which tests pass, and who needs help.</p>
+            </div>
+            <div class="parent-card" data-aos="fade-up" data-aos-delay="300">
+                <div class="parent-icon">💻</div>
+                <h3>Simple Setup</h3>
+                <p>Students need a computer with VS Code and an internet connection. Setup takes about 15 minutes with coach guidance.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Coaches -->
+<section class="section coaches-section" id="coaches">
+    <div class="container">
+        <div class="section-header" data-aos="fade-up">
+            <span class="section-tag">// team</span>
+            <h2>Meet the <span class="accent">Coaches</span></h2>
+        </div>
+        <div class="coaches-grid">
+            <div class="coach-card" data-aos="fade-up" data-aos-delay="0">
+                <div class="coach-avatar">👨‍💻</div>
+                <h3 class="coach-name">Sathwik</h3>
+                <div class="coach-role">Lead Coach</div>
+                <p class="coach-bio">Passionate about teaching kids real-world software skills. Building the next generation of developers, one commit at a time.</p>
+                <div class="coach-tags">
+                    <span>Python</span><span>GitHub</span><span>FLL</span>
+                </div>
+            </div>
+            <div class="coach-card" data-aos="fade-up" data-aos-delay="150">
+                <div class="coach-avatar">🧑‍🏫</div>
+                <h3 class="coach-name">Rama</h3>
+                <div class="coach-role">Lead Coach</div>
+                <p class="coach-bio">Dedicated to helping students discover the joy of problem solving through code. Every bug fixed is a lesson learned.</p>
+                <div class="coach-tags">
+                    <span>Robotics</span><span>Mentoring</span><span>FLL</span>
+                </div>
+            </div>
+            <div class="coach-card" data-aos="fade-up" data-aos-delay="300">
+                <div class="coach-avatar">👩‍💻</div>
+                <h3 class="coach-name">Surendar</h3>
+                <div class="coach-role">Lead Coach</div>
+                <p class="coach-bio">Bringing engineering experience to the classroom. Helping students think like real developers from day one.</p>
+                <div class="coach-tags">
+                    <span>Engineering</span><span>Python</span><span>VS Code</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="footer-content">
+        <div class="footer-logo"><span class="logo-bracket">&lt;</span>BotBuddies<span class="logo-bracket">/&gt;</span></div>
+        <p class="footer-tagline">Code. Build. Launch. 🚀</p>
+        <div class="footer-links">
+            <a href="https://github.com/sdbotbuddies" target="_blank">GitHub Org</a>
+        </div>
+        <p class="footer-copy">© 2026 BotBuddies. Built with 💙 and Python.</p>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/tsparticles@2.12.0/tsparticles.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

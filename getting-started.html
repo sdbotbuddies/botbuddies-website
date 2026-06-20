@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Getting Started — BotBuddies</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Space+Mono:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Getting Started specific styles */
+        .gs-hero {
+            min-height: 40vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 10rem 2rem 4rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .gs-hero h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: clamp(2rem, 6vw, 4rem);
+            font-weight: 900;
+            margin-bottom: 1rem;
+        }
+
+        .gs-hero p {
+            color: var(--text-dim);
+            font-size: 1.1rem;
+            max-width: 560px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        /* Steps */
+        .steps-section {
+            position: relative;
+            z-index: 1;
+            padding: 4rem 2rem 7rem;
+        }
+
+        .steps-container {
+            max-width: 820px;
+            margin: 0 auto;
+        }
+
+        .step-block {
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 2.5rem;
+            position: relative;
+        }
+
+        .step-block::before {
+            content: '';
+            position: absolute;
+            left: 2rem;
+            top: 4.5rem;
+            bottom: -2.5rem;
+            width: 2px;
+            background: linear-gradient(180deg, var(--cyan), transparent);
+            opacity: 0.3;
+        }
+
+        .step-block:last-child::before { display: none; }
+
+        .step-left {
+            flex-shrink: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .step-circle {
+            width: 4rem;
+            height: 4rem;
+            border-radius: 50%;
+            background: var(--bg-card);
+            border: 2px solid var(--cyan);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 900;
+            color: var(--cyan);
+            box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
+            flex-shrink: 0;
+        }
+
+        .step-right {
+            flex: 1;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2rem;
+            transition: all 0.3s;
+        }
+
+        .step-right:hover {
+            border-color: var(--cyan);
+            box-shadow: var(--glow-cyan);
+        }
+
+        .step-tag {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.72rem;
+            color: var(--cyan);
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+            display: block;
+            opacity: 0.7;
+        }
+
+        .step-right h3 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.1rem;
+            margin-bottom: 0.75rem;
+            color: var(--text);
+        }
+
+        .step-right p {
+            color: var(--text-dim);
+            line-height: 1.7;
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+        }
+
+        .step-right p:last-child { margin-bottom: 0; }
+
+        /* OS tabs */
+        .os-tabs {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .os-tab {
+            padding: 0.35rem 1rem;
+            border-radius: 6px;
+            font-family: 'Space Mono', monospace;
+            font-size: 0.78rem;
+            cursor: pointer;
+            border: 1px solid var(--border);
+            color: var(--text-dim);
+            background: transparent;
+            transition: all 0.2s;
+        }
+
+        .os-tab.active {
+            background: rgba(0, 212, 255, 0.12);
+            border-color: var(--cyan);
+            color: var(--cyan);
+        }
+
+        .os-content { display: none; }
+        .os-content.active { display: block; }
+
+        /* Code blocks */
+        .code-block {
+            background: #0d1117;
+            border: 1px solid #30363d;
+            border-radius: 10px;
+            padding: 1rem 1.25rem;
+            font-family: 'Space Mono', monospace;
+            font-size: 0.85rem;
+            color: var(--cyan);
+            position: relative;
+            margin: 0.75rem 0;
+            cursor: pointer;
+            transition: border-color 0.2s;
+        }
+
+        .code-block:hover { border-color: var(--cyan); }
+
+        .copy-hint {
+            position: absolute;
+            top: 0.5rem; right: 0.75rem;
+            font-size: 0.7rem;
+            color: var(--text-dim);
+            font-family: 'Space Mono', monospace;
+            opacity: 0;
+            transition: opacity 0.2s;
+        }
+
+        .code-block:hover .copy-hint { opacity: 1; }
+        .code-block.copied { border-color: var(--green); }
+        .code-block.copied .copy-hint { color: var(--green); opacity: 1; }
+
+        /* Tip boxes */
+        .tip-box {
+            background: rgba(0, 212, 255, 0.06);
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            border-radius: 10px;
+            padding: 0.875rem 1.25rem;
+            font-size: 0.88rem;
+            color: var(--text-dim);
+            margin-top: 0.75rem;
+            line-height: 1.6;
+        }
+
+        .tip-box strong { color: var(--cyan); }
+
+        /* Checklist */
+        .checklist {
+            list-style: none;
+            margin: 0.75rem 0;
+        }
+
+        .checklist li {
+            color: var(--text-dim);
+            font-size: 0.92rem;
+            padding: 0.4rem 0;
+            padding-left: 1.75rem;
+            position: relative;
+            line-height: 1.5;
+        }
+
+        .checklist li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--cyan);
+            font-family: 'Space Mono', monospace;
+        }
+
+        /* Done banner */
+        .done-banner {
+            max-width: 820px;
+            margin: 0 auto 4rem;
+            background: rgba(0, 255, 136, 0.06);
+            border: 1px solid rgba(0, 255, 136, 0.3);
+            border-radius: 16px;
+            padding: 2.5rem;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .done-banner h2 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.8rem;
+            color: #00ff88;
+            margin-bottom: 0.75rem;
+            text-shadow: 0 0 20px rgba(0, 255, 136, 0.4);
+        }
+
+        .done-banner p {
+            color: var(--text-dim);
+            font-size: 1rem;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .done-banner .btn-primary {
+            background: #00ff88;
+            color: #0a0a0f;
+            box-shadow: 0 0 25px rgba(0, 255, 136, 0.4);
+        }
+
+        .done-banner .btn-primary:hover {
+            box-shadow: 0 0 50px rgba(0, 255, 136, 0.7);
+        }
+
+        @media (max-width: 640px) {
+            .step-block { flex-direction: column; gap: 1rem; }
+            .step-block::before { display: none; }
+            .step-circle { width: 3rem; height: 3rem; font-size: 0.9rem; }
+        }
+    </style>
+</head>
+<body>
+
+<div id="tsparticles"></div>
+
+<nav class="nav">
+    <div class="nav-logo">
+        <a href="index.html" style="text-decoration:none;color:inherit;">
+            <span class="logo-bracket">&lt;</span>BotBuddies<span class="logo-bracket">/&gt;</span>
+        </a>
+    </div>
+    <div class="nav-links">
+        <a href="index.html#about">About</a>
+        <a href="index.html#how-it-works">How It Works</a>
+        <a href="index.html#learn">What You'll Learn</a>
+        <a href="index.html#parents">For Parents</a>
+        <a href="index.html#coaches">Coaches</a>
+        <a href="getting-started.html" class="nav-cta active">🚀 Get Started</a>
+    </div>
+</nav>
+
+<!-- Hero -->
+<div class="gs-hero">
+    <div>
+        <div class="hero-badge">🚀 Student Setup Guide</div>
+        <h1 style="margin-top:1.5rem"><span class="glow-text">Getting Started</span></h1>
+        <p style="margin-top:1rem">Follow these steps to set up your coding environment. You only need to do this <strong style="color:var(--cyan)">once</strong> — then you're ready to code all year!</p>
+    </div>
+</div>
+
+<!-- Steps -->
+<div class="steps-section">
+    <div class="steps-container">
+
+        <!-- Step 1: Install Git -->
+        <div class="step-block" data-aos="fade-up">
+            <div class="step-left">
+                <div class="step-circle">1</div>
+            </div>
+            <div class="step-right">
+                <span class="step-tag">// install</span>
+                <h3>Install Git</h3>
+                <p>Git is how your code travels between your computer and GitHub. Pick your operating system:</p>
+                <div class="os-tabs">
+                    <button class="os-tab active" onclick="switchOS(this, 'git')">Mac</button>
+                    <button class="os-tab" onclick="switchOS(this, 'git')">Windows</button>
+                </div>
+                <div class="os-content active" id="git-mac">
+                    Open the <strong style="color:var(--text)">Terminal</strong> app and run:
+                    <div class="code-block" onclick="copyCode(this)">xcode-select --install<span class="copy-hint">click to copy</span></div>
+                    A popup will appear — click <strong style="color:var(--text)">Install</strong> and wait for it to finish.
+                </div>
+                <div class="os-content" id="git-win">
+                    Download and install Git for Windows:
+                    <div class="code-block" onclick="copyCode(this)">https://git-scm.com/download/win<span class="copy-hint">click to copy</span></div>
+                    Use all the default settings during installation.
+                </div>
+                <div class="tip-box">💡 <strong>Not sure if you already have it?</strong> Open Terminal (Mac) or Command Prompt (Windows) and type <code style="color:var(--cyan)">git --version</code>. If you see a version number, you're good!</div>
+            </div>
+        </div>
+
+        <!-- Step 2: Install uv -->
+        <div class="step-block" data-aos="fade-up" data-aos-delay="50">
+            <div class="step-left">
+                <div class="step-circle">2</div>
+            </div>
+            <div class="step-right">
+                <span class="step-tag">// install</span>
+                <h3>Install uv — Python Manager</h3>
+                <p>uv installs Python and all the tools you need automatically. It's way easier than installing Python separately.</p>
+                <div class="os-tabs">
+                    <button class="os-tab active" onclick="switchOS(this, 'uv')">Mac</button>
+                    <button class="os-tab" onclick="switchOS(this, 'uv')">Windows</button>
+                </div>
+                <div class="os-content active" id="uv-mac">
+                    Open <strong style="color:var(--text)">Terminal</strong> and run:
+                    <div class="code-block" onclick="copyCode(this)">curl -LsSf https://astral.sh/uv/install.sh | sh<span class="copy-hint">click to copy</span></div>
+                    When it finishes, <strong style="color:var(--text)">close and reopen Terminal</strong>.
+                </div>
+                <div class="os-content" id="uv-win">
+                    Open <strong style="color:var(--text)">PowerShell</strong> and run:
+                    <div class="code-block" onclick="copyCode(this)">powershell -c "irm https://astral.sh/uv/install.ps1 | iex"<span class="copy-hint">click to copy</span></div>
+                    When it finishes, <strong style="color:var(--text)">close and reopen PowerShell</strong>.
+                </div>
+                <div class="tip-box">💡 <strong>To verify it worked:</strong> type <code style="color:var(--cyan)">uv --version</code> in a new terminal window. You should see a version number.</div>
+            </div>
+        </div>
+
+        <!-- Step 3: Install VS Code -->
+        <div class="step-block" data-aos="fade-up" data-aos-delay="50">
+            <div class="step-left">
+                <div class="step-circle">3</div>
+            </div>
+            <div class="step-right">
+                <span class="step-tag">// install</span>
+                <h3>Install VS Code + Python Extension</h3>
+                <p>VS Code is your coding home base. It's free and used by developers at Microsoft, Google, and NASA.</p>
+                <ul class="checklist">
+                    <li>Download VS Code from <strong style="color:var(--cyan)">code.visualstudio.com</strong> and install it</li>
+                    <li>Open VS Code, click the <strong style="color:var(--text)">Extensions icon</strong> (four squares) in the left sidebar</li>
+                    <li>Search for <strong style="color:var(--cyan)">Python</strong> and install the one made by Microsoft</li>
+                </ul>
+                <div class="tip-box">💡 <strong>That's it for VS Code!</strong> The Python extension gives you test running, autocomplete, and error highlighting — all the good stuff.</div>
+            </div>
+        </div>
+
+        <!-- Step 4: Clone your repo -->
+        <div class="step-block" data-aos="fade-up" data-aos-delay="50">
+            <div class="step-left">
+                <div class="step-circle">4</div>
+            </div>
+            <div class="step-right">
+                <span class="step-tag">// setup</span>
+                <h3>Clone Your Repo in VS Code</h3>
+                <p>Your coach will send you a personal repo link — this is your coding workspace for the whole year. Here's how to open it:</p>
+                <ul class="checklist">
+                    <li>Open VS Code</li>
+                    <li>Press <strong style="color:var(--cyan)">Ctrl+Shift+P</strong> (Windows) or <strong style="color:var(--cyan)">Cmd+Shift+P</strong> (Mac)</li>
+                    <li>Type <strong style="color:var(--text)">Git: Clone</strong> and press Enter</li>
+                    <li>Paste the repo link your coach sent you and press Enter</li>
+                    <li>Choose a folder on your computer to save it, then click <strong style="color:var(--text)">Open</strong></li>
+                </ul>
+                <div class="tip-box">💡 <strong>Your repo link looks like:</strong> <code style="color:var(--cyan)">https://github.com/sdbotbuddies/student-yourname</code></div>
+            </div>
+        </div>
+
+        <!-- Step 5: Allow automatic setup -->
+        <div class="step-block" data-aos="fade-up" data-aos-delay="50">
+            <div class="step-left">
+                <div class="step-circle">5</div>
+            </div>
+            <div class="step-right">
+                <span class="step-tag">// setup</span>
+                <h3>Allow Automatic Setup</h3>
+                <p>When VS Code opens your repo for the first time, it will show a notification at the bottom of the screen:</p>
+                <div style="background:#161b22;border:1px solid #30363d;border-radius:10px;padding:1rem 1.25rem;margin:0.75rem 0;font-family:'Space Mono',monospace;font-size:0.82rem;color:#e6edf3;">
+                    "This workspace has tasks configured to run automatically."<br>
+                    <span style="color:#00d4ff">→ Click <strong>Allow</strong></span>
+                </div>
+                <p>This runs <code style="color:var(--cyan)">uv sync</code> in the background, which installs Python 3.11 and pytest automatically. It takes about 30 seconds.</p>
+                <div class="tip-box">💡 <strong>You only see this once.</strong> After clicking Allow, your environment is set up forever on this computer.</div>
+            </div>
+        </div>
+
+        <!-- Step 6: Run your first test -->
+        <div class="step-block" data-aos="fade-up" data-aos-delay="50">
+            <div class="step-left">
+                <div class="step-circle">6</div>
+            </div>
+            <div class="step-right">
+                <span class="step-tag">// verify</span>
+                <h3>Run Your First Test</h3>
+                <p>Let's make sure everything is working. Look for the flask icon ⚗️ in the left sidebar of VS Code — that's the Test Explorer.</p>
+                <ul class="checklist">
+                    <li>Click the <strong style="color:var(--cyan)">⚗️ flask icon</strong> in the left sidebar</li>
+                    <li>You should see your first assignment listed: <code style="color:var(--cyan)">a01-python-basics</code></li>
+                    <li>Click the <strong style="color:var(--text)">▷ Run All Tests</strong> button at the top</li>
+                    <li>You'll see <strong style="color:#ff5555">red ❌</strong> marks — that's normal! It means the tests are working and waiting for your code.</li>
+                </ul>
+                <div class="tip-box">💡 <strong>Red is good here!</strong> It means the tests found your empty solution. Your job is to write code in <code style="color:var(--cyan)">solution.py</code> until they all turn green ✅.</div>
+            </div>
+        </div>
+
+        <!-- Step 7: Submit work -->
+        <div class="step-block" data-aos="fade-up" data-aos-delay="50">
+            <div class="step-left">
+                <div class="step-circle">7</div>
+            </div>
+            <div class="step-right">
+                <span class="step-tag">// workflow</span>
+                <h3>Submit Your Work</h3>
+                <p>Once your tests go green, here's how to submit using VS Code:</p>
+                <ul class="checklist">
+                    <li>Click the <strong style="color:var(--cyan)">Source Control icon</strong> 𝌡 in the left sidebar</li>
+                    <li>Click <strong style="color:var(--text)">+</strong> next to <strong style="color:var(--text)">Changes</strong> to stage your files</li>
+                    <li>Type a short message in the box — like <code style="color:var(--cyan)">"solved a01"</code></li>
+                    <li>Click the dropdown arrow next to <strong style="color:var(--text)">Commit</strong> and choose <strong style="color:var(--cyan)">Commit &amp; Push</strong></li>
+                </ul>
+                <p>Within seconds, GitHub automatically runs all the tests — including some hidden ones your coach added. Check the <strong style="color:var(--cyan)">Actions tab</strong> on GitHub to see your full results!</p>
+                <div class="tip-box">💡 <strong>Hidden tests?</strong> Yep — some tests are secret. That's part of the challenge. If your visible tests all pass but a hidden one fails, you've found an edge case to fix. Welcome to real software development! 🎉</div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Done Banner -->
+    <div class="done-banner" data-aos="fade-up">
+        <div style="font-size:3rem;margin-bottom:1rem">🎉</div>
+        <h2>You're All Set!</h2>
+        <p>Your environment is ready. Open your first assignment at <code style="color:#00ff88">assignments/a01-python-basics/README.md</code>, read the instructions, and start coding. You've got this!</p>
+        <a href="index.html#how-it-works" class="btn btn-primary">See the Full Workflow →</a>
+    </div>
+</div>
+
+<footer class="footer">
+    <div class="footer-content">
+        <div class="footer-logo"><span class="logo-bracket">&lt;</span>BotBuddies<span class="logo-bracket">/&gt;</span></div>
+        <p class="footer-tagline">Code. Build. Launch. 🚀</p>
+        <div class="footer-links">
+            <a href="https://github.com/sdbotbuddies" target="_blank">GitHub Org</a>
+        </div>
+        <p class="footer-copy">© 2026 BotBuddies. Built with 💙 and Python.</p>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/tsparticles@2.12.0/tsparticles.bundle.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+AOS.init({ duration: 800, once: true, offset: 80 });
+
+tsParticles.load("tsparticles", {
+    fullScreen: { enable: true, zIndex: 0 },
+    particles: {
+        number: { value: 60, density: { enable: true, value_area: 900 } },
+        color: { value: ["#00d4ff", "#7c3aed", "#00ff88"] },
+        opacity: { value: 0.4, random: true },
+        size: { value: 2, random: true },
+        links: { enable: true, distance: 140, color: "#00d4ff", opacity: 0.6, width: 1.5 },
+        move: { enable: true, speed: 1.2, outModes: { default: "bounce" } }
+    },
+    interactivity: {
+        events: { onHover: { enable: true, mode: "repulse" }, onClick: { enable: true, mode: "push" } },
+        modes: { repulse: { distance: 100 }, push: { quantity: 4 } }
+    }
+});
+
+function switchOS(btn, prefix) {
+    const tabs = btn.parentElement.querySelectorAll('.os-tab');
+    const isWindows = btn.textContent === 'Windows';
+    tabs.forEach((t, i) => t.classList.toggle('active', i === (isWindows ? 1 : 0)));
+    const macEl = document.getElementById(prefix + '-mac');
+    const winEl = document.getElementById(prefix + '-win');
+    if (macEl && winEl) {
+        macEl.classList.toggle('active', !isWindows);
+        winEl.classList.toggle('active', isWindows);
+    }
+}
+
+function copyCode(el) {
+    const text = el.textContent.replace('click to copy', '').trim();
+    navigator.clipboard.writeText(text).then(() => {
+        const hint = el.querySelector('.copy-hint');
+        hint.textContent = 'copied!';
+        el.classList.add('copied');
+        setTimeout(() => {
+            hint.textContent = 'click to copy';
+            el.classList.remove('copied');
+        }, 2000);
+    });
+}
+</script>
+</body>
+</html>
