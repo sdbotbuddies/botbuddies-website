@@ -16,14 +16,17 @@
     <div class="nav-logo">
         <span class="logo-bracket">&lt;</span>BotBuddies<span class="logo-bracket">/&gt;</span>
     </div>
-    <div class="nav-links">
-        <a href="#about">About</a>
-        <a href="#how-it-works">How It Works</a>
-        <a href="#learn">What You'll Learn</a>
-        <a href="#parents">For Parents</a>
-        <a href="#coaches">Coaches</a>
+    <div class="nav-links" id="nav-links">
+        <a href="#about" onclick="closeMenu()">About</a>
+        <a href="#how-it-works" onclick="closeMenu()">How It Works</a>
+        <a href="#learn" onclick="closeMenu()">What You'll Learn</a>
+        <a href="#parents" onclick="closeMenu()">For Parents</a>
+        <a href="#coaches" onclick="closeMenu()">Coaches</a>
         <a href="getting-started.html" class="nav-cta">🚀 Get Started</a>
     </div>
+    <button class="hamburger" id="hamburger" aria-label="Menu" onclick="toggleMenu()">
+        <span></span><span></span><span></span>
+    </button>
 </nav>
 
 <!-- About -->
@@ -262,5 +265,22 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script src="script.js"></script>
+<script>
+function toggleMenu() {
+    const nav = document.getElementById('nav-links');
+    const btn = document.getElementById('hamburger');
+    nav.classList.toggle('open');
+    btn.classList.toggle('open');
+}
+function closeMenu() {
+    document.getElementById('nav-links').classList.remove('open');
+    document.getElementById('hamburger').classList.remove('open');
+}
+document.addEventListener('click', function(e) {
+    const nav = document.getElementById('nav-links');
+    const btn = document.getElementById('hamburger');
+    if (!nav.contains(e.target) && !btn.contains(e.target)) closeMenu();
+});
+</script>
 </body>
 </html>
