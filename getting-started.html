@@ -464,6 +464,70 @@
         <p>Your environment is ready. Open your first assignment at <code style="color:#00ff88">assignments/a01-python-basics/README.md</code>, read the instructions, and start coding. You've got this!</p>
         <a href="index.html#how-it-works" class="btn btn-primary">See the Full Workflow →</a>
     </div>
+
+    <!-- Troubleshooting -->
+    <div class="steps-container" style="margin-top:3rem;">
+        <div class="section-header" style="text-align:center;margin-bottom:2rem;">
+            <span class="section-tag">// troubleshooting</span>
+            <h2 style="font-family:'Orbitron',sans-serif;font-size:1.8rem;font-weight:900;">Something not working?</h2>
+            <p style="color:var(--text-dim);margin-top:0.75rem;">Common issues and how to fix them.</p>
+        </div>
+
+        <!-- Issue 1 -->
+        <div class="step-block" data-aos="fade-up">
+            <div class="step-left">
+                <div class="step-circle" style="border-color:#ff5555;color:#ff5555;box-shadow:0 0 20px rgba(255,85,85,0.3);">!</div>
+            </div>
+            <div class="step-right">
+                <span class="step-tag">// issue</span>
+                <h3>Tests not showing in the Testing panel</h3>
+                <p>VS Code is using the wrong Python — the system Python instead of the one installed by <code style="color:var(--cyan)">uv sync</code>.</p>
+                <ul class="checklist">
+                    <li>Press <strong style="color:var(--cyan)">Ctrl+Shift+P</strong> → type <strong style="color:var(--text)">Python: Select Interpreter</strong> → Enter</li>
+                    <li>Choose the one that says <code style="color:var(--cyan)">.venv/bin/python</code> or <code style="color:var(--cyan)">'botbuddies': uv</code></li>
+                    <li>Click the <strong style="color:var(--text)">refresh icon</strong> in the Testing panel — tests should appear</li>
+                </ul>
+                <div class="tip-box">💡 <strong>Can't find .venv in the list?</strong> Click <strong>Enter interpreter path... → Find...</strong> and navigate to your repo folder → <code style="color:var(--cyan)">.venv → bin → python</code></div>
+            </div>
+        </div>
+
+        <!-- Issue 2 -->
+        <div class="step-block" data-aos="fade-up" data-aos-delay="50">
+            <div class="step-left">
+                <div class="step-circle" style="border-color:#ff5555;color:#ff5555;box-shadow:0 0 20px rgba(255,85,85,0.3);">!</div>
+            </div>
+            <div class="step-right">
+                <span class="step-tag">// issue</span>
+                <h3>"No module named pytest" error</h3>
+                <p>The setup task ran but VS Code is still using the wrong Python interpreter.</p>
+                <ul class="checklist">
+                    <li>Check that <code style="color:var(--cyan)">.venv</code> folder exists inside your repo folder</li>
+                    <li>If it doesn't exist, open the terminal (`` Ctrl+` ``) and run: <div class="code-block" onclick="copyCode(this)" style="margin-top:0.5rem">uv sync<span class="copy-hint">click to copy</span></div></li>
+                    <li>Then follow the steps above to select the <code style="color:var(--cyan)">.venv</code> interpreter</li>
+                </ul>
+                <div class="tip-box">💡 <strong>Quick check:</strong> Look at the bottom status bar in VS Code. It shows the active Python version. It should say <code style="color:var(--cyan)">3.11</code> — if it shows <code style="color:#ff5555">3.13</code> or another version, the wrong interpreter is selected.</div>
+            </div>
+        </div>
+
+        <!-- Issue 3 -->
+        <div class="step-block" data-aos="fade-up" data-aos-delay="100">
+            <div class="step-left">
+                <div class="step-circle" style="border-color:#ff5555;color:#ff5555;box-shadow:0 0 20px rgba(255,85,85,0.3);">!</div>
+            </div>
+            <div class="step-right">
+                <span class="step-tag">// issue</span>
+                <h3>The setup task didn't run automatically</h3>
+                <p>VS Code didn't prompt "Allow automatic tasks?" or you accidentally clicked Dismiss.</p>
+                <ul class="checklist">
+                    <li>Press <strong style="color:var(--cyan)">Ctrl+Shift+P</strong> → type <strong style="color:var(--text)">Tasks: Run Task</strong> → Enter</li>
+                    <li>Select <strong style="color:var(--text)">Setup: Install dependencies</strong></li>
+                    <li>A terminal will open and run <code style="color:var(--cyan)">uv sync</code> — wait for it to finish</li>
+                </ul>
+                <div class="tip-box">💡 <strong>Still not working?</strong> Ask your coach — they can help you get set up in a few minutes.</div>
+            </div>
+        </div>
+
+    </div>
 </div>
 
 <footer class="footer">
