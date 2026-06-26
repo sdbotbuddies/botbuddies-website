@@ -415,10 +415,37 @@
             </div>
         </div>
 
-        <!-- Step 5: Allow automatic setup -->
+        <!-- Step 5: Tell Git who you are -->
         <div class="step-block" data-aos="fade-up" data-aos-delay="50">
             <div class="step-left">
                 <div class="step-circle">5</div>
+            </div>
+            <div class="step-right">
+                <span class="step-tag">// setup</span>
+                <h3>Tell Git Who You Are</h3>
+                <p>Git needs to know your name and email so your commits are tagged correctly. Open the integrated terminal in VS Code with <strong style="color:var(--cyan)">Ctrl+`</strong> (same on Windows and Mac) and run these two commands — replace the name and email with what your coach told you to use:</p>
+                <div class="os-tabs">
+                    <button class="os-tab active" onclick="switchOS(this, 'gitid')">Mac / Linux</button>
+                    <button class="os-tab" onclick="switchOS(this, 'gitid')">Windows</button>
+                </div>
+                <div class="os-content active" id="gitid-mac">
+                    In the <strong style="color:var(--text)">Terminal</strong> inside VS Code, run:
+                    <div class="code-block" onclick="copyCode(this)">git config --local user.name "Your Name"<span class="copy-hint">click to copy</span></div>
+                    <div class="code-block" onclick="copyCode(this)">git config --local user.email "your@email.com"<span class="copy-hint">click to copy</span></div>
+                </div>
+                <div class="os-content" id="gitid-win">
+                    In the <strong style="color:var(--text)">PowerShell terminal</strong> inside VS Code, run:
+                    <div class="code-block" onclick="copyCode(this)">git config --local user.name "Your Name"<span class="copy-hint">click to copy</span></div>
+                    <div class="code-block" onclick="copyCode(this)">git config --local user.email "your@email.com"<span class="copy-hint">click to copy</span></div>
+                </div>
+                <div class="tip-box">💡 <strong>You only do this once per computer.</strong> The <code style="color:var(--cyan)">--local</code> flag sets it just for this repo, so it won't affect anything else on your machine.</div>
+            </div>
+        </div>
+
+        <!-- Step 6: Allow automatic setup -->
+        <div class="step-block" data-aos="fade-up" data-aos-delay="50">
+            <div class="step-left">
+                <div class="step-circle">6</div>
             </div>
             <div class="step-right">
                 <span class="step-tag">// setup</span>
@@ -433,10 +460,10 @@
             </div>
         </div>
 
-        <!-- Step 6: Run your first test -->
+        <!-- Step 7: Run your first test -->
         <div class="step-block" data-aos="fade-up" data-aos-delay="50">
             <div class="step-left">
-                <div class="step-circle">6</div>
+                <div class="step-circle">7</div>
             </div>
             <div class="step-right">
                 <span class="step-tag">// verify</span>
@@ -452,10 +479,10 @@
             </div>
         </div>
 
-        <!-- Step 7: Submit work -->
+        <!-- Step 8: Submit work -->
         <div class="step-block" data-aos="fade-up" data-aos-delay="50">
             <div class="step-left">
-                <div class="step-circle">7</div>
+                <div class="step-circle">8</div>
             </div>
             <div class="step-right">
                 <span class="step-tag">// workflow</span>
@@ -501,10 +528,10 @@
                 <p>VS Code is using the wrong Python — the system Python instead of the one installed by <code style="color:var(--cyan)">uv sync</code>.</p>
                 <ul class="checklist">
                     <li>Press <strong style="color:var(--cyan)">Ctrl+Shift+P</strong> → type <strong style="color:var(--text)">Python: Select Interpreter</strong> → Enter</li>
-                    <li>Choose the one that says <code style="color:var(--cyan)">.venv/bin/python</code> or <code style="color:var(--cyan)">'botbuddies': uv</code></li>
+                    <li>Choose the one that says <code style="color:var(--cyan)">.venv/bin/python</code> (Mac/Linux), <code style="color:var(--cyan)">.venv\Scripts\python</code> (Windows), or <code style="color:var(--cyan)">'botbuddies': uv</code></li>
                     <li>Click the <strong style="color:var(--text)">refresh icon</strong> in the Testing panel — tests should appear</li>
                 </ul>
-                <div class="tip-box">💡 <strong>Can't find .venv in the list?</strong> Click <strong>Enter interpreter path... → Find...</strong> and navigate to your repo folder → <code style="color:var(--cyan)">.venv → bin → python</code></div>
+                <div class="tip-box">💡 <strong>Can't find .venv in the list?</strong> Click <strong>Enter interpreter path... → Find...</strong> and navigate to your repo folder → <code style="color:var(--cyan)">.venv → bin → python</code> (Mac/Linux) or <code style="color:var(--cyan)">.venv → Scripts → python</code> (Windows)</div>
             </div>
         </div>
 
